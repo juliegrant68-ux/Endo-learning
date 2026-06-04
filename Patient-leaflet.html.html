@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swallowing Difficulties &amp; the Ageing Gullet — Patient Information</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root {
+    --navy: #1a3a4a;
+    --teal: #3a9ab0;
+    --teal-light: #d6eff5;
+    --green: #4a8a5a;
+    --green-light: #e8f5ec;
+    --amber: #b07820;
+    --amber-light: #fdf3dc;
+    --red: #b04040;
+    --red-light: #fdecea;
+    --warm-white: #fdfcf9;
+    --text: #2a2a2a;
+    --muted: #666;
+    --border: #e0ddd6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #ddd;
+    font-family: 'Nunito', sans-serif;
+    color: var(--text);
+    padding: 20px;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    background: var(--warm-white);
+    margin: 0 auto;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ---- HEADER ---- */
+  .header {
+    background: var(--navy);
+    padding: 24px 28px 20px;
+    position: relative;
+  }
+
+  .nhs-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #7eb8c8;
+    margin-bottom: 6px;
+  }
+
+  .header h1 {
+    font-family: 'Lora', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.25;
+  }
+
+  .header h1 span {
+    color: #7dd4e8;
+    font-style: italic;
+  }
+
+  .header-sub {
+    font-size: 11px;
+    color: #a8ccd8;
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  .header-blob {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 64px;
+    height: 64px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+  }
+
+  /* ---- INTRO ---- */
+  .intro {
+    background: var(--teal-light);
+    border-left: 5px solid var(--teal);
+    padding: 14px 24px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #1a3a4a;
+  }
+
+  .intro strong { font-weight: 800; }
+
+  /* ---- SECTIONS ---- */
+  .content {
+    padding: 16px 24px;
+  }
+
+  .section {
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 5px;
+  }
+
+  .section-title .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+
+  p.body-text {
+    font-size: 11.5px;
+    line-height: 1.75;
+    color: #333;
+    margin-bottom: 6px;
+  }
+
+  ul.body-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul.body-list li {
+    font-size: 11.5px;
+    color: #333;
+    line-height: 1.6;
+    padding: 3px 0 3px 16px;
+    position: relative;
+    border-bottom: 1px solid #f0ede6;
+  }
+
+  ul.body-list li:last-child { border-bottom: none; }
+
+  ul.body-list li::before {
+    content: '●';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-size: 7px;
+    top: 7px;
+  }
+
+  ul.body-list li strong { font-weight: 700; color: var(--navy); }
+
+  /* ---- SEVERITY TRAFFIC LIGHT ---- */
+  .severity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 6px;
+  }
+
+  .sev-card {
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 10.5px;
+    line-height: 1.6;
+  }
+
+  .sev-card.mild {
+    background: var(--green-light);
+    border: 1.5px solid #a8d8b8;
+  }
+
+  .sev-card.moderate {
+    background: var(--amber-light);
+    border: 1.5px solid #e0c870;
+  }
+
+  .sev-card.severe {
+    background: var(--red-light);
+    border: 1.5px solid #e0a8a0;
+  }
+
+  .sev-label {
+    font-weight: 800;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .sev-card.mild .sev-label { color: var(--green); }
+  .sev-card.moderate .sev-label { color: var(--amber); }
+  .sev-card.severe .sev-label { color: var(--red); }
+
+  .sev-card ul { list-style: none; padding: 0; }
+  .sev-card ul li {
+    padding: 2px 0 2px 12px;
+    position: relative;
+    color: #333;
+    border: none;
+  }
+  .sev-card ul li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: #999;
+  }
+
+  /* ---- WHAT TO TELL YOUR DOCTOR ---- */
+  .tell-box {
+    background: #f0f7fa;
+    border: 1.5px dashed var(--teal);
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-top: 6px;
+  }
+
+  .tell-box p {
+    font-size: 11px;
+    color: #1a3a4a;
+    line-height: 1.65;
+    margin-bottom: 4px;
+  }
+
+  .tell-box p:last-child { margin-bottom: 0; }
+
+  /* ---- SELF-HELP TIPS ---- */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 6px;
+  }
+
+  .tip {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 9px 12px;
+    font-size: 11px;
+    line-height: 1.6;
+    color: #333;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .tip-icon {
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .tip strong {
+    display: block;
+    font-size: 10.5px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  /* ---- WHEN TO SEEK HELP ---- */
+  .alert-box {
+    background: #fff5f5;
+    border-left: 5px solid var(--red);
+    border-radius: 0 5px 5px 0;
+    padding: 11px 16px;
+    margin-top: 6px;
+  }
+
+  .alert-box p {
+    font-size: 11px;
+    color: #5a1a1a;
+    line-height: 1.65;
+  }
+
+  .alert-box strong { color: var(--red); }
+
+  /* ---- QR SECTION ---- */
+  .qr-section {
+    background: var(--navy);
+    padding: 14px 24px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    align-items: center;
+  }
+
+  .qr-area {
+    text-align: center;
+  }
+
+  #qr-code {
+    background: white;
+    padding: 6px;
+    border-radius: 4px;
+    display: inline-block;
+    min-width: 80px;
+    min-height: 80px;
+  }
+
+  #qr-placeholder {
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: #aaa;
+    text-align: center;
+    padding: 6px;
+    line-height: 1.4;
+  }
+
+  .qr-info h3 {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 5px;
+  }
+
+  .qr-info p {
+    font-size: 10px;
+    color: #a8ccd8;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .qr-input-row {
+    display: flex;
+    gap: 6px;
+  }
+
+  #qr-url-input {
+    flex: 1;
+    padding: 6px 10px;
+    font-size: 10px;
+    border: none;
+    border-radius: 3px;
+    font-family: 'Nunito', sans-serif;
+    outline: none;
+  }
+
+  #qr-generate-btn {
+    padding: 6px 12px;
+    background: var(--teal);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    white-space: nowrap;
+  }
+
+  #qr-generate-btn:hover { background: #2a8aa0; }
+
+  #qr-status {
+    font-size: 9px;
+    color: #7dd4e8;
+    margin-top: 4px;
+    min-height: 12px;
+  }
+
+  /* ---- FOOTER ---- */
+  .footer {
+    background: #f5f2eb;
+    border-top: 2px solid var(--border);
+    padding: 9px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer span {
+    font-size: 8.5px;
+    color: #888;
+  }
+
+  .footer strong {
+    font-size: 9px;
+    color: var(--navy);
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; }
+    .qr-input-row, #qr-status { display: none; }
+    .qr-info p:last-of-type { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="nhs-tag">Patient Information · Gastroenterology</div>
+    <h1>Swallowing Difficulties<br>and the <span>Ageing Gullet</span></h1>
+    <p class="header-sub">Understanding why swallowing can become harder as we get older,<br>and what can be done to help.</p>
+    <div class="header-blob">🫁</div>
+  </div>
+
+  <!-- Intro -->
+  <div class="intro">
+    As we age, the muscles and nerves in the food pipe (gullet or <strong>oesophagus</strong>) can gradually become less coordinated. 
+    This is a normal part of ageing and is called <strong>oesophageal dysmotility</strong> — which simply means the gullet is not moving food along as smoothly as it once did.
+    It is more common after the age of 60 and is not the same as having a blockage or growth.
+  </div>
+
+  <!-- Main content -->
+  <div class="content">
+
+    <!-- What is the oesophagus -->
+    <div class="section">
+      <div class="section-title"><span class="dot"></span> What does the gullet normally do?</div>
+      <p class="body-text">
+        When you swallow, your gullet squeezes in a wave-like motion to push food and drink down into your stomach. 
+        With age, these squeezes can become weaker, less coordinated, or happen out of sequence — meaning food moves more slowly or unevenly.
+      </p>
+    </div>
+
+    <!-- Symptoms -->
+    <div class="section">
+      <div class="section-title"><span class="dot" style="background:#d4715a;"></span> What might you notice?</div>
+      <ul class="body-list">
+        <li><strong>Food feeling like it sticks</strong> in your chest or throat, especially bread, meat or dry foods</li>
+        <li><strong>Difficulty swallowing</strong> — this may come and go at first</li>
+        <li><strong>Chest discomfort or pain</strong> after eating — this is from the gullet, not the heart</li>
+        <li><strong>Bringing food back up</strong> after swallowing</li>
+        <li><strong>A feeling of a lump</strong> in your throat, even when not eating</li>
+        <li><strong>Eating more slowly</strong> or avoiding certain foods</li>
+        <li><strong>Unexpected weight loss</strong> if eating has become difficult</li>
+      </ul>
+    </div>
+
+    <!-- Severity -->
+    <div class="section">
+      <div class="section-title"><span class="dot" style="background:#8a6a9a;"></span> How serious can it be?</div>
+      <p class="body-text">Dysmotility can range from very mild — barely noticeable — to more significant. Here is a simple guide:</p>
+      <div class="severity-grid">
+        <div class="sev-card mild">
+          <div class="sev-label">🟢 Mild</div>
+          <ul>
+            <li>Occasional sticking sensation</li>
+            <li>Solids only, comes and goes</li>
+            <li>Weight stays stable</li>
+            <li>Simple changes to eating habits usually help</li>
+          </ul>
+        </div>
+        <div class="sev-card moderate">
+          <div class="sev-label">🟡 Moderate</div>
+          <ul>
+            <li>More regular swallowing difficulty</li>
+            <li>Some chest discomfort or regurgitation</li>
+            <li>May start to affect what you eat</li>
+            <li>Tests and specialist advice likely needed</li>
+          </ul>
+        </div>
+        <div class="sev-card severe">
+          <div class="sev-label">🔴 Severe</div>
+          <ul>
+            <li>Difficulty with most foods and liquids</li>
+            <li>Weight loss; eating becomes distressing</li>
+            <li>Risk of food or liquid entering the airway</li>
+            <li>Specialist team involvement essential</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- What the doctor might see -->
+    <div class="section">
+      <div class="section-title"><span class="dot" style="background:#6a9a7a;"></span> How is it investigated?</div>
+      <p class="body-text">Your doctor may arrange one or more of the following:</p>
+      <ul class="body-list">
+        <li><strong>Endoscopy (camera test)</strong> — a thin, flexible camera is passed into your gullet to look for any abnormalities. Sometimes a corkscrew or rippled appearance of the gullet wall is visible, caused by the muscles contracting irregularly.</li>
+        <li><strong>Barium swallow</strong> — you swallow a chalky liquid while X-rays are taken, showing how it moves through your gullet in real time</li>
+        <li><strong>Manometry</strong> — a thin tube measures the pressure and coordination of the gullet muscles as you swallow</li>
+        <li><strong>pH / impedance test</strong> — checks whether stomach acid is coming back up (reflux) as a contributing factor</li>
+      </ul>
+    </div>
+
+    <!-- Tell your doctor -->
+    <div class="section">
+      <div class="section-title"><span class="dot" style="background:#c49a3a;"></span> What to tell your doctor</div>
+      <div class="tell-box">
+        <p>It helps to tell your doctor: <strong>when the swallowing difficulty started</strong>, whether it is getting worse, and whether it affects <strong>solids, liquids or both</strong>.</p>
+        <p>Also mention any <strong>unintended weight loss</strong>, episodes of <strong>coughing or choking</strong> while eating or drinking, or any recent <strong>chest infections</strong> — these are important symptoms that need prompt assessment.</p>
+        <p>Keep a simple food diary for a week before your appointment if you can — noting what was difficult to swallow and when — as this is very helpful to your clinical team.</p>
+      </div>
+    </div>
+
+    <!-- Self help tips -->
+    <div class="section">
+      <div class="section-title"><span class="dot" style="background:#3a9ab0;"></span> Tips to make eating easier</div>
+      <div class="tips-grid">
+        <div class="tip"><span class="tip-icon">🍽️</span><div><strong>Eat slowly</strong> Take smaller bites and chew thoroughly. Put your cutlery down between mouthfuls.</div></div>
+        <div class="tip"><span class="tip-icon">💧</span><div><strong>Drink with meals</strong> Small sips of water help wash food through the gullet more easily.</div></div>
+        <div class="tip"><span class="tip-icon">🪑</span><div><strong>Sit upright</strong> Stay seated and upright for at least 30–60 minutes after eating. Avoid lying down straight after meals.</div></div>
+        <div class="tip"><span class="tip-icon">🥣</span><div><strong>Softer foods</strong> If certain foods cause problems, try softer alternatives — scrambled eggs, yoghurt, soups, mashed vegetables.</div></div>
+        <div class="tip"><span class="tip-icon">🛏️</span><div><strong>Raise your bed head</strong> Propping up the head of your bed by a few inches can help if symptoms are worse at night.</div></div>
+        <div class="tip"><span class="tip-icon">🚫</span><div><strong>Avoid triggers</strong> Spicy food, caffeine and alcohol can worsen symptoms for some people. Try reducing these and see if it helps.</div></div>
+      </div>
+    </div>
+
+    <!-- When to seek help -->
+    <div class="section">
+      <div class="section-title"><span class="dot" style="background:#b04040;"></span> When to seek urgent help</div>
+      <div class="alert-box">
+        <p>Please contact your GP or seek urgent care if you experience: <strong>sudden or rapidly worsening difficulty swallowing</strong>, <strong>choking on food or liquids</strong>, <strong>vomiting blood or material that looks like coffee grounds</strong>, <strong>unexplained weight loss</strong>, or chest pain that is new or severe. These symptoms always need prompt medical review.</p>
+      </div>
+    </div>
+
+  </div><!-- end .content -->
+
+  <!-- QR Code Section -->
+  <div class="qr-section">
+    <div class="qr-area">
+      <div id="qr-code">
+        <div id="qr-placeholder">Paste URL<br>below to<br>generate</div>
+      </div>
+    </div>
+    <div class="qr-info">
+      <h3>📱 Read this leaflet on your phone or tablet</h3>
+      <p>Scan the QR code with your phone's camera to view this leaflet online at any time — or share it with a family member or carer.</p>
+      <p>If you don't have a smartphone, ask at reception for a printed copy.</p>
+      <div class="qr-input-row">
+        <input type="text" id="qr-url-input" placeholder="Paste leaflet URL here to generate QR code…" />
+        <button id="qr-generate-btn" onclick="generateQR()">Generate</button>
+      </div>
+      <div id="qr-status"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span>This leaflet is for information only and does not replace advice from your clinical team. · <strong>Always consult your doctor if you are concerned.</strong></span>
+    <span>PIL · Oesophageal Dysmotility · v1.0</span>
+  </div>
+
+</div>
+
+<script>
+  function generateQR() {
+    const url = document.getElementById('qr-url-input').value.trim();
+    const status = document.getElementById('qr-status');
+    const container = document.getElementById('qr-code');
+
+    if (!url) {
+      status.textContent = 'Please enter a URL first.';
+      return;
+    }
+
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+      status.textContent = 'URL should start with https://';
+      return;
+    }
+
+    // Clear previous QR and placeholder
+    container.innerHTML = '';
+    document.getElementById('qr-placeholder') && (document.getElementById('qr-placeholder').style.display = 'none');
+
+    try {
+      new QRCode(container, {
+        text: url,
+        width: 80,
+        height: 80,
+        colorDark: '#1a3a4a',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.M
+      });
+      status.textContent = '✓ QR code generated — ready to print.';
+    } catch(e) {
+      status.textContent = 'Could not generate QR code. Check the URL and try again.';
+    }
+  }
+
+  // Allow Enter key to trigger generation
+  document.getElementById('qr-url-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') generateQR();
+  });
+</script>
+</body>
+</html>
